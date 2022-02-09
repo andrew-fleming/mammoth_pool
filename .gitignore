@@ -4,3 +4,6 @@ builds
 .pytest_cache
 test.txt
 __pycache__/
+
+artifacts
+env

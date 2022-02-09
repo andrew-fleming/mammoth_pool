@@ -37,7 +37,8 @@ POOL = int(
 )
 
 LP = int(
-    json.load(open("current_state_info/current_deployment_info.json"))["LP"]["address"],
+    json.load(open("current_state_info/current_deployment_info.json")
+              )["LP"]["address"],
     16,
 )
 
@@ -96,7 +97,8 @@ async def create_pool():
     exit_fee = (1, 1000)
 
     (nonce,) = await account_contract.functions["get_nonce"].call()
-    selector = proxy_contract.functions["create_pool"].get_selector("create_pool")
+    selector = proxy_contract.functions["create_pool"].get_selector(
+        "create_pool")
     calldata = [LP, POOL, swap_fee[0], swap_fee[1], exit_fee[0], exit_fee[1]]
     calldata_len = len(calldata)
 
@@ -113,11 +115,13 @@ async def create_pool():
 
     print(public_key)
 
-    input_list = [proxy_contract.address, selector, calldata_len] + calldata + [nonce]
+    input_list = [proxy_contract.address, selector,
+                  calldata_len] + calldata + [nonce]
 
     print("creating pool")
 
-    output = custom_invoke(ACCOUNT, "Account", "execute", input_list, signature)
+    output = custom_invoke(ACCOUNT, "Account", "execute",
+                           input_list, signature)
 
     # add ERC20s
 
@@ -146,7 +150,8 @@ async def create_pool():
             [proxy_contract.address, selector, calldata_len] + calldata + [nonce]
         )
 
-        output = custom_invoke(ACCOUNT, "Account", "execute", input_list, signature)
+        output = custom_invoke(
+            ACCOUNT, "Account", "execute", input_list, signature)
         print(output)
 
 

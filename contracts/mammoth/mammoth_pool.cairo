@@ -16,7 +16,7 @@ from starkware.cairo.common.uint256 import (
     Uint256, uint256_add, uint256_sub, uint256_le, uint256_lt, uint256_unsigned_div_rem
 )
 
-from lib.local_cairo.ratio import Ratio
+from contracts.mammoth.ratio import Ratio
 
 #NOTE: rewards in this contract are distributed per 1000000000 wei or .000000001 ETH 
 

@@ -8,8 +8,14 @@ from starkware.cairo.common.uint256 import (
     Uint256, uint256_add, uint256_sub, uint256_le, uint256_lt
 )
 
-from lib.local_cairo.balancer_math import (get_spot_price, get_pool_minted_given_single_in, get_single_out_given_pool_in, get_out_given_in)
-from lib.local_cairo.ratio import Ratio, ratio_add
+from contracts.mammoth.balancer_math import (
+    get_spot_price, 
+    get_pool_minted_given_single_in, 
+    get_single_out_given_pool_in, 
+    get_out_given_in
+)
+
+from contracts.mammoth.ratio import Ratio, ratio_add
 
 # proxy contract for depositing to Mammoth pool, receiving LP tokens, 
 # and for MM to interact with mammoth pool liquidity 
